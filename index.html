@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <title>Aracari Travel — Your luxury travel specialist for Peru and South America since 1996</title>
+  <link rel="icon" href="https://cdn.aracari.com/wp-content/uploads/2018/08/cropped-favicon-1-75x75.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0b2a3b;
+      --navy-mid:   #123347;
+      --teal:       #76a4b3;
+      --teal-light: #9dc0cc;
+      --white:      #fcfcfc;
+      --off-white:  #f4f0eb;
+      --gray-light: #eeeeee;
+      --gray-mid:   #999999;
+      --gray-dark:  #313131;
+      --text:       #303030;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── HEADER / NAV ── */
+    #wrapper-navbar {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(11, 42, 59, 0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(118,164,179,0.15);
+    }
+    .navbar-container {
+      max-width: 1280px; margin: 0 auto;
+      padding: .9rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .navbar-brand img { height: 52px; width: auto; display: block; }
+    .main-nav { display: flex; gap: 2.2rem; list-style: none; }
+    .main-nav > li > a {
+      color: rgba(255,255,255,0.82);
+      font-size: .75rem; font-weight: 400;
+      letter-spacing: 1.8px; text-transform: uppercase;
+      padding: .4rem 0;
+      border-bottom: 1px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .main-nav > li > a:hover {
+      color: var(--teal-light);
+      border-bottom-color: var(--teal);
+    }
+    .nav-contact-btn {
+      background: var(--teal); color: var(--navy) !important;
+      padding: .45rem 1.2rem !important;
+      border-radius: 2px; border-bottom: none !important;
+      font-weight: 500 !important;
+      transition: background .2s !important;
+    }
+    .nav-contact-btn:hover { background: var(--teal-light) !important; }
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: .3rem;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 1.5px; background: #fff;
+    }
+
+    /* ── HERO ── */
+    .header-hero {
+      position: relative; height: 100vh; min-height: 600px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(0deg, #0b2a3b 0%, rgba(11,42,59,0.25) 60%, transparent 100%),
+        url('https://cdn.aracari.com/wp-content/uploads/2015/10/nad-hemnani-8xpklKrfsG4-unsplash-720x1029.jpg') center/cover no-repeat;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      padding: 0 2rem 5rem;
+    }
+    .hero-eyebrow {
+      font-size: .68rem; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--teal-light); margin-bottom: 1rem;
+      opacity: 0; animation: fadeUp .7s .3s forwards;
+    }
+    .hero-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(2.4rem, 5.5vw, 5rem);
+      font-weight: 300; line-height: 1.15; color: #fff;
+      max-width: 640px;
+      opacity: 0; animation: fadeUp .7s .5s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--teal-light); }
+    .hero-sub {
+      margin-top: 1.4rem;
+      font-size: .95rem; color: rgba(255,255,255,.7);
+      max-width: 480px; line-height: 1.8;
+      opacity: 0; animation: fadeUp .7s .7s forwards;
+    }
+    .hero-cta {
+      margin-top: 2rem; display: inline-flex; align-items: center; gap: .5rem;
+      padding: .8rem 2rem;
+      background: var(--teal); color: var(--navy);
+      font-size: .75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+      transition: background .2s;
+      opacity: 0; animation: fadeUp .7s .9s forwards;
+    }
+    .hero-cta:hover { background: var(--teal-light); }
+    .hero-cta-arrow { font-size: 1rem; }
+
+    /* ── CELEBRATING BANNER ── */
+    .celebrating-bar {
+      background: var(--navy); text-align: center;
+      padding: 1.1rem 2rem;
+      border-bottom: 1px solid rgba(118,164,179,0.2);
+    }
+    .celebrating-bar p {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem; font-style: italic;
+      color: var(--teal-light); letter-spacing: .5px;
+    }
+
+    /* ── GENERIC SECTION ── */
+    .section { padding: 6rem 2rem; max-width: 1280px; margin: 0 auto; }
+    .section-full { padding: 6rem 2rem; }
+    .section-label {
+      font-size: .65rem; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--teal); margin-bottom: .8rem;
+    }
+    .section-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300; line-height: 1.25; color: var(--navy);
+    }
+    .section-title em { font-style: italic; }
+    .section-body {
+      margin-top: 1rem; color: var(--gray-mid);
+      line-height: 1.85; font-size: .9rem; max-width: 520px;
+    }
+
+    /* ── WHY ARACARI ── */
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+      align-items: center; max-width: 1280px; margin: 0 auto; padding: 6rem 2rem;
+    }
+    .why-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 2rem; }
+    .why-feature {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding-bottom: 2rem; border-bottom: 1px solid var(--gray-light);
+    }
+    .why-feature:last-child { border-bottom: none; }
+    .why-num {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2rem; color: var(--teal); font-weight: 300;
+      line-height: 1; flex-shrink: 0; width: 2rem;
+    }
+    .why-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.05rem; color: var(--navy); margin-bottom: .4rem;
+    }
+    .why-desc { font-size: .85rem; color: var(--gray-mid); line-height: 1.7; }
+    .why-image { position: relative; }
+    .why-image img {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover;
+      display: block;
+    }
+    .why-image-badge {
+      position: absolute; bottom: -1.5rem; left: -1.5rem;
+      background: var(--navy); color: var(--teal-light);
+      padding: 1.2rem 1.5rem;
+      font-family: 'Source Serif 4', serif;
+    }
+    .why-image-badge .big { font-size: 2rem; font-weight: 300; display: block; }
+    .why-image-badge .small { font-size: .65rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.5); }
+
+    /* ── DESTINATIONS GRID ── */
+    .destinations-section { background: var(--off-white); }
+    .destinations-intro { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem 2rem; }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0; max-width: 1280px; margin: 2.5rem auto 0; padding: 0 2rem 5rem;
+    }
+    .dest-card {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4; cursor: pointer;
+    }
+    .dest-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .55s ease;
+    }
+    .dest-card:hover img { transform: scale(1.07); }
+    .dest-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(11,42,59,.88) 0%, rgba(11,42,59,.1) 55%, transparent 80%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 1.5rem;
+    }
+    .dest-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.3rem; color: #fff; font-weight: 300;
+    }
+    .dest-explore {
+      font-size: .65rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--teal-light); margin-top: .3rem;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity .3s, transform .3s;
+    }
+    .dest-card:hover .dest-explore { opacity: 1; transform: translateY(0); }
+
+    /* ── BESPOKE JOURNEYS STRIP ── */
+    .bespoke-strip {
+      background: var(--navy); padding: 5rem 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      max-width: 100%;
+    }
+    .bespoke-inner { max-width: 1280px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .bespoke-strip .section-title { color: var(--white); }
+    .bespoke-strip .section-label { color: var(--teal); }
+    .bespoke-strip .section-body { color: rgba(255,255,255,.55); max-width: 440px; }
+    .journey-types { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .journey-card {
+      position: relative; overflow: hidden; aspect-ratio: 1;
+    }
+    .journey-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .journey-card:hover img { transform: scale(1.06); }
+    .journey-card-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(11,42,59,.9), transparent);
+      padding: 1rem .8rem .8rem;
+      font-family: 'Source Serif 4', serif;
+      font-size: .9rem; color: #fff;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      background: var(--gray-light); padding: 6rem 2rem;
+      text-align: center;
+    }
+    .testimonials-section .section-title { text-align: center; margin: 0 auto; }
+    .testimonials-section .section-label { text-align: center; }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      max-width: 1100px; margin: 3rem auto 0;
+    }
+    .testimonial-card {
+      background: var(--white); padding: 2.2rem;
+      text-align: left; position: relative;
+    }
+    .testimonial-stars { color: var(--teal); font-size: .9rem; margin-bottom: 1rem; }
+    .testimonial-text {
+      font-family: 'Source Serif 4', serif;
+      font-size: .95rem; font-style: italic; color: var(--navy);
+      line-height: 1.7; margin-bottom: 1.2rem;
+    }
+    .testimonial-author {
+      font-size: .7rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gray-mid);
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--navy); color: rgba(255,255,255,.5);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(118,164,179,.15);
+    }
+    .footer-logo { height: 44px; margin-bottom: 1.2rem; filter: brightness(0) invert(1); opacity: .8; }
+    .footer-desc { font-size: .82rem; line-height: 1.8; max-width: 280px; }
+    .footer-col-title {
+      font-size: .65rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--teal-light); margin-bottom: 1.2rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+    .footer-links a { font-size: .82rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--teal-light); }
+    .footer-bottom {
+      max-width: 1280px; margin: 1.5rem auto 0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .72rem;
+    }
+
+    /* ── CHAT WIDGET ── */
+    #chat-btn {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 9000;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--teal);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform .2s, background .2s;
+    }
+    #chat-btn:hover { transform: scale(1.08); background: var(--teal-light); }
+    #chat-btn svg { width: 26px; height: 26px; fill: var(--navy); }
+    .chat-pulse {
+      position: absolute; width: 58px; height: 58px; border-radius: 50%;
+      border: 2px solid var(--teal); opacity: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%   { transform: scale(1); opacity: .6; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    .chat-tooltip {
+      position: fixed; bottom: 7rem; right: 2rem; z-index: 9000;
+      background: var(--navy); color: var(--white);
+      padding: .55rem 1rem; border-radius: 3px;
+      font-size: .75rem; letter-spacing: .5px; white-space: nowrap;
+      box-shadow: 0 3px 12px rgba(0,0,0,.25);
+      opacity: 0; pointer-events: none; transition: opacity .2s;
+    }
+    .chat-tooltip::after {
+      content: ''; position: absolute; top: 100%; right: 1.5rem;
+      border: 6px solid transparent;
+      border-top-color: var(--navy);
+    }
+    #chat-btn:hover ~ .chat-tooltip { opacity: 1; }
+
+    #chat-window {
+      position: fixed; bottom: 6.5rem; right: 2rem; z-index: 8999;
+      width: 400px; height: 580px;
+      background: #fff; border-radius: 8px;
+      box-shadow: 0 16px 56px rgba(0,0,0,0.25);
+      overflow: hidden; display: none; flex-direction: column;
+      transform: translateY(16px) scale(.97); opacity: 0;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    #chat-window.open { display: flex; transform: translateY(0) scale(1); opacity: 1; }
+    .chat-header {
+      background: var(--navy); padding: .9rem 1.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .chat-header-left { display: flex; align-items: center; gap: .8rem; }
+    .chat-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--teal); display: flex; align-items: center;
+      justify-content: center; font-size: 1rem; flex-shrink: 0;
+    }
+    .chat-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem; color: #fff; font-weight: 300;
+    }
+    .chat-subtitle {
+      font-size: .65rem; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--teal-light); margin-top: .1rem;
+    }
+    .chat-online { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #4caf84; margin-right: 4px; }
+    .chat-close {
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,.5); font-size: 1.2rem;
+      transition: color .2s; line-height: 1;
+    }
+    .chat-close:hover { color: #fff; }
+    .chat-frame { flex: 1; border: none; width: 100%; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .main-nav { display: none; }
+      .nav-hamburger { display: flex; }
+      .why-grid, .bespoke-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .dest-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      #chat-window { width: calc(100vw - 2rem); right: 1rem; }
+      .journey-types { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .dest-grid { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header id="wrapper-navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-brand">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2025/09/aracari_logo_2025v2-white.png"
+             onerror="this.style.cssText='font-family:Source Serif 4,serif;font-size:1.3rem;color:#9dc0cc;letter-spacing:3px;font-weight:300;display:block'"
+             alt="Aracari Travel"/>
+      </a>
+      <ul class="main-nav">
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#journeys">Bespoke Journeys</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#contact" class="nav-contact-btn">Plan My Trip</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="header-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Luxury Travel Specialists · Since 1996</p>
+      <h1 class="hero-title">Your luxury travel<br>specialist for<br><em>Peru &amp; South America</em></h1>
+      <p class="hero-sub">Exclusive, authentic &amp; bespoke adventures across South America for discerning travelers.</p>
+      <a href="#destinations" class="hero-cta">Discover Destinations <span class="hero-cta-arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- ── CELEBRATING BANNER ── -->
+  <div class="celebrating-bar">
+    <p>✦ Celebrating 30 years of crafting extraordinary journeys — 1996 to 2026 ✦</p>
+  </div>
+
+  <!-- ── WHY ARACARI ── -->
+  <div class="why-grid" id="about">
+    <div>
+      <p class="section-label">Why Aracari</p>
+      <h2 class="section-title">Luxury journeys<br>fully <em>tailored to you</em></h2>
+      <p class="section-body">For 30 years, Aracari has been connecting discerning travelers with the most authentic, exclusive, and transformative experiences South America has to offer.</p>
+      <div class="why-features">
+        <div class="why-feature">
+          <div class="why-num">01</div>
+          <div>
+            <div class="why-title">Personalized Service</div>
+            <div class="why-desc">Every itinerary is designed from scratch around your interests, pace, and travel style. No two journeys are alike.</div>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-num">02</div>
+          <div>
+            <div class="why-title">Travel with Purpose</div>
+            <div class="why-desc">We connect you with local archaeologists, chefs, naturalists and artisans for meaningful experiences beyond tourism.</div>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-num">03</div>
+          <div>
+            <div class="why-title">Local Knowledge</div>
+            <div class="why-desc">Our team lives and breathes South America, giving you privileged access that no guidebook can provide.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-image">
+      <img src="https://cdn.aracari.com/wp-content/uploads/2015/10/nad-hemnani-8xpklKrfsG4-unsplash-720x1029.jpg" alt="Peru landscape"/>
+      <div class="why-image-badge">
+        <span class="big">30</span>
+        <span class="small">Years of expertise</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DESTINATIONS ── -->
+  <section class="destinations-section" id="destinations">
+    <div class="destinations-intro">
+      <p class="section-label">Where We Travel</p>
+      <h2 class="section-title">Deeper &amp; <em>Different</em></h2>
+    </div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2015/10/nad-hemnani-8xpklKrfsG4-unsplash-720x1029.jpg" alt="Peru"/>
+        <div class="dest-overlay">
+          <div class="dest-name">Peru</div>
+          <div class="dest-explore">Explore →</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2021/06/argentina-2-720x1029.jpg" alt="Argentina"/>
+        <div class="dest-overlay">
+          <div class="dest-name">Argentina</div>
+          <div class="dest-explore">Explore →</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2018/03/bolivia-1-720x1029.jpg" alt="Bolivia"/>
+        <div class="dest-overlay">
+          <div class="dest-name">Bolivia</div>
+          <div class="dest-explore">Explore →</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2018/03/galapagos-1-720x1029.jpg" alt="Galápagos"/>
+        <div class="dest-overlay">
+          <div class="dest-name">Galápagos Islands</div>
+          <div class="dest-explore">Explore →</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2023/01/brazil-1-720x1029.jpg" alt="Brazil"/>
+        <div class="dest-overlay">
+          <div class="dest-name">Brazil</div>
+          <div class="dest-explore">Explore →</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2023/01/chile-720x1029.jpg" alt="Chile"/>
+        <div class="dest-overlay">
+          <div class="dest-name">Chile</div>
+          <div class="dest-explore">Explore →</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2023/01/colombia-1-720x1029.jpg" alt="Colombia"/>
+        <div class="dest-overlay">
+          <div class="dest-name">Colombia</div>
+          <div class="dest-explore">Explore →</div>
+        </div>
+      </div>
+      <div class="dest-card">
+        <img src="https://cdn.aracari.com/wp-content/uploads/2025/09/antartica-1-720x1029.png" alt="Antarctica"/>
+        <div class="dest-overlay">
+          <div class="dest-name">Antarctica</div>
+          <div class="dest-explore">Explore →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BESPOKE JOURNEYS ── -->
+  <section style="background:var(--navy); padding: 6rem 2rem;" id="journeys">
+    <div class="bespoke-inner">
+      <div>
+        <p class="section-label" style="color:var(--teal)">Travel Beyond the Ordinary</p>
+        <h2 class="section-title" style="color:var(--white)">Bespoke journeys<br>built <em>around you</em></h2>
+        <p class="section-body" style="color:rgba(255,255,255,.55); max-width:420px">
+          Whether you seek adventure, gastronomy, wellness or cultural immersion — we craft every detail around your vision of the perfect journey.
+        </p>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:2rem;padding:.75rem 2rem;background:var(--teal);color:var(--navy);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:background .2s" onmouseover="this.style.background='var(--teal-light)'" onmouseout="this.style.background='var(--teal)'">
+          Start Planning →
+        </a>
+      </div>
+      <div class="journey-types">
+        <div class="journey-card">
+          <img src="https://cdn.aracari.com/wp-content/uploads/2025/12/adventure-and-trekking-720x1029.jpg" alt="Adventure"/>
+          <div class="journey-card-label">Adventure &amp; Trekking</div>
+        </div>
+        <div class="journey-card">
+          <img src="https://cdn.aracari.com/wp-content/uploads/2025/09/foodie-720x1029.jpg" alt="Foodie"/>
+          <div class="journey-card-label">Gastronomy</div>
+        </div>
+        <div class="journey-card">
+          <img src="https://cdn.aracari.com/wp-content/uploads/2025/09/wellbeing-and-privacy-1-720x1029.jpg" alt="Wellness"/>
+          <div class="journey-card-label">Wellbeing</div>
+        </div>
+        <div class="journey-card">
+          <img src="https://cdn.aracari.com/wp-content/uploads/2025/09/family-travel-720x1029.jpg" alt="Family"/>
+          <div class="journey-card-label">Family Travel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials-section" id="journal">
+    <p class="section-label">Real Words. True Journeys.</p>
+    <h2 class="section-title">Stories from those<br>who've <em>travelled with us</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"An unforgettable Peru &amp; Rainforest adventure. Aracari's attention to detail and local knowledge made every day extraordinary."</p>
+        <div class="testimonial-author">— Sarah M. · New York</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"We fell in love with Peru. From Machu Picchu to the Amazon, every experience was thoughtfully curated just for our family."</p>
+        <div class="testimonial-author">— James &amp; Claire R. · London</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"An amazing trip with exceptional local guides. Aracari redefines what luxury travel truly means — it's all about authentic connection."</p>
+        <div class="testimonial-author">— Margot D. · Paris</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div>
+        <img class="footer-logo"
+          src="https://cdn.aracari.com/wp-content/uploads/2025/09/aracari_logo_2025v2-white.png"
+          onerror="this.style.cssText='font-family:Source Serif 4,serif;font-size:1.1rem;color:#9dc0cc;letter-spacing:3px;font-weight:300;display:block;margin-bottom:1rem'"
+          alt="Aracari Travel"/>
+        <p class="footer-desc">Your luxury travel specialist for Peru and South America since 1996. Virtuoso Member · Condé Nast Traveler Top Specialist.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Destinations</div>
+        <ul class="footer-links">
+          <li><a href="#">Peru</a></li>
+          <li><a href="#">Argentina</a></li>
+          <li><a href="#">Bolivia</a></li>
+          <li><a href="#">Galápagos</a></li>
+          <li><a href="#">Chile</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Journeys</div>
+        <ul class="footer-links">
+          <li><a href="#">Adventure &amp; Trekking</a></li>
+          <li><a href="#">Gastronomy</a></li>
+          <li><a href="#">Family Travel</a></li>
+          <li><a href="#">Wellbeing</a></li>
+          <li><a href="#">Cultural</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:info@aracari.com">info@aracari.com</a></li>
+          <li><a href="#">+51 1 651 2424</a></li>
+          <li><a href="#">Calle Los Manzanos 649</a></li>
+          <li><a href="#">San Isidro, Lima, Perú</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Aracari Travel. All rights reserved.</span>
+      <span>Virtuoso Member · Condé Nast Traveler · National Geographic Partner</span>
+    </div>
+  </footer>
+
+  <!-- ── CHAT WIDGET ── -->
+  <button id="chat-btn" onclick="toggleChat()" aria-label="Chat with Ara">
+    <div class="chat-pulse"></div>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.1 21.1a.75.75 0 00.94.94l3.932-1.338A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm-3 9a1 1 0 110-2 1 1 0 010 2zm3 0a1 1 0 110-2 1 1 0 010 2zm3 0a1 1 0 110-2 1 1 0 010 2z"/>
+    </svg>
+  </button>
+  <div class="chat-tooltip">Chat with Ara, our AI travel advisor ✦</div>
+
+  <div id="chat-window">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-avatar">🦜</div>
+        <div>
+          <div class="chat-title">Ara — Aracari Travel</div>
+          <div class="chat-subtitle"><span class="chat-online"></span>Virtual Travel Advisor</div>
+        </div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
+    </div>
+    <!-- Cambia el src por tu URL de Streamlit cuando despliegues -->
+    <iframe class="chat-frame" src="http://localhost:8501" title="Ara Chatbot"></iframe>
+  </div>
+
+  <script>
+    let chatOpen = false;
+    function toggleChat() {
+      const win = document.getElementById('chat-window');
+      chatOpen = !chatOpen;
+      if (chatOpen) {
+        win.style.display = 'flex';
+        requestAnimationFrame(() => requestAnimationFrame(() => win.classList.add('open')));
+      } else {
+        win.classList.remove('open');
+        setTimeout(() => win.style.display = 'none', 300);
+      }
+    }
+  </script>
+
+</body>
+</html>
