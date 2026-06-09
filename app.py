@@ -1,6 +1,10 @@
 import streamlit as st
 from rag_chain import get_chain
 from langchain_core.messages import HumanMessage, AIMessage
+import os
+if not os.path.exists("./chroma_db"):
+    import subprocess
+    subprocess.run(["python", "ingest.py"])
 
 st.set_page_config(page_title="Ara - Aracari Travel", page_icon="🦙", layout="centered")
 

@@ -1,7 +1,3 @@
-"""
-ingest.py — Carga los documentos del catálogo Aracari Travel a ChromaDB
-Ejecutar UNA SOLA VEZ: python ingest.py
-"""
 
 import os
 import shutil
